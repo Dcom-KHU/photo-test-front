@@ -1,0 +1,12 @@
+{
+  "name": "gyujin",
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  }
+}

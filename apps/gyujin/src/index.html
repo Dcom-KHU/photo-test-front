@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>사진 테스트</title>
+  <link href="./index.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="flex justify-around">
+      <button id="btn-photo" class="text-2xl font-bold">사진</buttona>
+        <button id="btn-secret" class="text-2xl font-bold">비밀사진</button>
+        <button id="btn-login" class="text-2xl font-bold">로그인</button>
+    </div>
+    <div id="photo"></div>
+    <div id="modal" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                  <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">로그인하기</h3>
+                  <div class="mt-2">
+                    <input id="username-input" placeholder="유저 이름" />
+                    <input id="email-input" placeholder="이메일" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <button type="button" id="loginRequestBtn"
+                class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">로그인하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="./index.js" type="module"></script>
+</body>
+
+</html>
