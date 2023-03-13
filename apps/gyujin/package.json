@@ -1,10 +1,10 @@
 {
-  "name": "vanila-example",
+  "name": "gyujin",
   "packageManager": "yarn@3.4.1",
   "scripts": {
     "start": "parcel index.html"
   },
-  "dependencies": {
+  "devDependencies": {
     "parcel": "^2.8.3"
   }
 }
