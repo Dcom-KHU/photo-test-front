@@ -9,4 +9,4 @@ const initialState = {
   photos: [],
   accessToken: null,
 };
-const app = App({ initialState });
+const app = new App({ initialState });
