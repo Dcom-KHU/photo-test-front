@@ -12,7 +12,6 @@
   render -> 작성된 template을 target DOM element에 붙혀주는 역할
 */
 
-
 class Component{
   $target; //$는 private variable을 의미, target: DOM element
   state; //state: 컴포넌트의 상태
@@ -33,3 +32,29 @@ class Component{
     this.state = {...this.state, newState}
   }
 }
+
+/* 실제 메인 동작을 관장하는 App 컴포넌트 
+  생성자와 render 같은 함수는 건들일 필요 없이 app-specific한 함수들만 override 해줍니다.
+*/
+class App extends Component{
+  setup = () => {
+    this.state = { photos: this.fetchPhotos()};
+  }
+  template = () => {
+    const { photos } = this.state;
+    return `
+      <div style="display: flex; flex-direction: column">
+        ${photos.map(photo => `<img width="400" src=${photo}/>`)}
+      </div>
+    `
+  }
+  fetchPhotos = async () => {
+    const result = await fetch('/api/photos');
+    const body = await result.json();
+
+    return body;
+  }
+}
+
+/* DOM에 렌더링 */
+new App(document.querySelector('#app'));
