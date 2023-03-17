@@ -14,21 +14,20 @@
 
 class Component{
   $target; //$는 private variable을 의미, target: DOM element
-  state; //state: 컴포넌트의 상태
+  state = {}; //state: 컴포넌트의 상태
   constructor($target){
     this.$target = $target;
     this.setup();
     this.render();
   }
-
-  setup = () => {}
-  template = () => '';
-  render = () => {
+  setup(){}
+  template () {return ''};
+  render() {
     this.$target.innerHTML = this.template();
     this.setEvent();
   }
-  setEvent = () => {}
-  setState = (newState) => {
+  setEvent() {}
+  setState(newState) {
     this.state = {...this.state, newState}
   }
 }
@@ -36,11 +35,12 @@ class Component{
 /* 실제 메인 동작을 관장하는 App 컴포넌트 
   생성자와 render 같은 함수는 건들일 필요 없이 app-specific한 함수들만 override 해줍니다.
 */
+
 class App extends Component{
-  setup = () => {
-    this.state = { photos: this.fetchPhotos()};
+  async setup(){
+    this.state = { photos: await this.fetchPhotos()};
   }
-  template = () => {
+  template() {
     const { photos } = this.state;
     return `
       <div style="display: flex; flex-direction: column">
@@ -48,7 +48,7 @@ class App extends Component{
       </div>
     `
   }
-  fetchPhotos = async () => {
+  async fetchPhotos () {
     const result = await fetch('/api/photos');
     const body = await result.json();
 
