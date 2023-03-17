@@ -17,8 +17,12 @@ class Component{
   state = {}; //state: 컴포넌트의 상태
   constructor($target){
     this.$target = $target;
-    this.setup();
-    this.render();
+    // 비동기 작업을 위해 init 함수를 추가하여 우회
+    return this.init();
+  }
+  async init(){
+    await this.setup();
+    return this;
   }
   setup(){}
   template () {return ''};
