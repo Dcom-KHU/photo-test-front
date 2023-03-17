@@ -22,6 +22,7 @@ class Component{
   }
   async init(){
     await this.setup();
+    this.render()
     return this;
   }
   setup(){}
@@ -48,7 +49,7 @@ class App extends Component{
     const { photos } = this.state;
     return `
       <div style="display: flex; flex-direction: column">
-        ${photos.map(photo => `<img width="400" src=${photo}/>`)}
+        ${photos.map(photo => `<img width="400" src=${photo.url}>`)}
       </div>
     `
   }
