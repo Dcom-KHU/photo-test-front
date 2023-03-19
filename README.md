@@ -6,6 +6,7 @@
 - eslint 플러그인은 깔려있어야함
 - vs code 세팅에서 default formatter를 ESLint로 format on save를 체크로
 - eslint > Format: Enable을 체크
+- 터미널에 `yarn dlx @yarnpkg/sdks vscode` 입력
 ### yarn
 - 패키지 관리 도구로 `yarn berry`를 사용합니다.
 - npm 쓰지 마세요!!
